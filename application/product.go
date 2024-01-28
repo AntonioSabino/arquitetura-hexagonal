@@ -19,6 +19,7 @@ type ProductInterface interface {
 	GetName() string
 	GetStatus() string
 	GetPrice() float64
+	ChangePrice(price float64) error
 }
 
 type ProductServiceInterface interface {
@@ -90,6 +91,18 @@ func (p *Product) Enable() error {
 		return nil
 	}
 	return errors.New("the price must be greater than zero to enable the product")
+}
+
+func (p *Product) ChangePrice(price float64) error {
+	if p.Price < 0 {
+		return errors.New("price only accept positive numbers")
+	}
+	p.Price = price
+	_, err := p.IsValid()
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (p *Product) Disable() error {
