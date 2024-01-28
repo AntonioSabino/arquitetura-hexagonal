@@ -172,10 +172,10 @@ func (mr *MockProductServiceInterfaceMockRecorder) Create(name, price interface{
 }
 
 // Disable mocks base method.
-func (m *MockProductServiceInterface) Disable(product application.ProductInterface) (bool, error) {
+func (m *MockProductServiceInterface) Disable(product application.ProductInterface) (application.ProductInterface, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Disable", product)
-	ret0, _ := ret[0].(bool)
+	ret0, _ := ret[0].(application.ProductInterface)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -187,10 +187,10 @@ func (mr *MockProductServiceInterfaceMockRecorder) Disable(product interface{}) 
 }
 
 // Enable mocks base method.
-func (m *MockProductServiceInterface) Enable(product application.ProductInterface) (bool, error) {
+func (m *MockProductServiceInterface) Enable(product application.ProductInterface) (application.ProductInterface, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Enable", product)
-	ret0, _ := ret[0].(bool)
+	ret0, _ := ret[0].(application.ProductInterface)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
